@@ -10,6 +10,71 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample7">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#", style="color: #fff;">
+            Bookers
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarEexample7">
+          <ul class="nav navbar-nav navbar-right">
+            <!-- ログイン時 -->
+            <li>
+              <%= link_to root_path do %><!-- あとでマイページリンクに変更 -->
+                <%= fa_icon "home", text: "Home" %> 
+              <% end %>
+            </li>
+            <li>
+              <%= link_to home_about_path do %>
+                <%= fa_icon "user", text: "Users" %> 
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_registration_path do %>
+                <%= fa_icon "book", text: "Books" %> 
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <%= fa_icon "sign-out", text: "logout" %> 
+              <% end %>
+            </li>
+            
+            <!-- 非ログイン時 -->
+            <li>
+              <%= link_to root_path do %>
+                <%= fa_icon "home", text: "Home" %> 
+              <% end %>
+            </li>
+            <li>
+              <%= link_to home_about_path do %>
+                <%= fa_icon "link", text: "About" %> 
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_registration_path do %>
+                <%= fa_icon "edit", text: "sign up" %> 
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_session_path do %>
+                <%= fa_icon "sign-in", text: "login" %> 
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
