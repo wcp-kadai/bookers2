@@ -16,3 +16,16 @@
  */
 @import "bootstrap-sprockets";  /*ここを追加*/
 @import "bootstrap";            /*ここを追加*/
+
+/* home */
+.top-wrapper {
+  width: 45%;
+  margin: 0 auto;
+}
+
+.top-wrapper > .btn {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  color: #555;
+}

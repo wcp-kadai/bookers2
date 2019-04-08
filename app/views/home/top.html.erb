@@ -1,2 +1,10 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<div class="top-wrapper">
+  <h2>welcome to <%= fa_icon "book" %> Bookers !!</h2>
+  <p>
+  In <%= fa_icon "book" %> <strong>Bookers</strong>,<br>
+  you can share and exchange your opinions , inpressions , and emotions<br>
+  about varioius books!
+  </p>
+  <%= link_to "Log in", new_user_session_path, class: "btn btn-info" %>
+  <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success" %>
+</div>
