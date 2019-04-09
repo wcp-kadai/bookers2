@@ -29,3 +29,36 @@
   margin: 0 auto;
   color: #555;
 }
+
+/* user */
+.mypage-tb tr {
+  border-top: 1px solid #ddd;
+}
+
+.mypage-tb th {
+  padding: 10px;
+}
+
+.mypage-tb + .btn {
+  width: 100%;
+}
+
+.list-tb {
+  width: 100%;
+}
+
+.list-tb tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+
+
+
+
+

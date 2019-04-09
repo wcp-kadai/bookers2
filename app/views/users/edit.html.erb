@@ -1,0 +1,15 @@
+<h2>User info</h2>
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message| %>
+    <p class="error"><%= message %></p>
+  <% end %>
+<% end %>
+<%= form_for @user do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :profile_image, "Image" %>
+  <%= f.attachment_field :profile_image %><br>
+  <%= f.label :introduction %>
+  <%= f.text_area :introduction %><br>
+  <%= f.submit "Update User" %>
+<% end %>
