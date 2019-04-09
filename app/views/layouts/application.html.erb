@@ -39,7 +39,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to new_user_registration_path do %>
+                <%= link_to books_path do %>
                   <%= fa_icon "book", text: "Books" %> 
                 <% end %>
               </li>
@@ -77,6 +77,9 @@
       </div>
     </nav>
     <div class="container">
+      <% if flash %>
+        <p class="success"><%= flash[:success] %></p>
+      <% end %>
       <%= yield %>
     </div>
   </body>

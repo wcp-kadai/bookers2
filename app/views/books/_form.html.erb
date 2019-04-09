@@ -1,8 +1,13 @@
+<% if @book.errors.any? %>
+  <% @book.errors.full_messages.each do |message| %>
+    <p class="error"><%= message %></p>
+  <% end %>
+<% end %>
 <h2>New book</h2>
-<form action="">
-  <label for="">Title</label><br>
-  <input type=""><br>
-  <label for="">Opinion</label><br>
-  <textarea id="" name="" cols="30" rows="10"></textarea><br>
-  <input type="submit" class="btn btn-primary">
-</form>    
+<%= form_for book do |f| %>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+  <%= f.label :opinion %><br>
+  <%= f.text_area :opinion %><br>
+  <%= f.submit "Create Book", class: "btn btn-primary" %>
+<% end %>
