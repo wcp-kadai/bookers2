@@ -65,6 +65,12 @@
   width: 100%;
 }
 
+.edit_book > input, .edit_book > textarea, .new_book > input, .new_book > textarea {
+  width: 100%;
+}
 
+.edit_book ~ a {
+  color: #777;
+}
 
 

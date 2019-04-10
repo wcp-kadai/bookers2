@@ -1,13 +1,22 @@
-<h2>Editing Book</h2>
-<% if @book.errors.any? %>
-  <% @book.errors.full_messages.each do |message| %>
-    <p class="error"><%= message %></p>
-  <% end %>
-<% end %>
-<%= form_for @book do |f| %>
-  <%= f.label :title %><br>
-  <%= f.text_field :title %><br>
-  <%= f.label :opinion %><br>
-  <%= f.text_area :opinion %><br>
-  <%= f.submit "Update Book", class: "btn btn-primary", style: "display: block;" %>
-<% end %>
+<div class="row">
+  <div class="col-lg-3"></div>
+  <div class="col-lg-6">
+    <h2>Editing Book</h2>
+    <% if @book.errors.any? %>
+      <% @book.errors.full_messages.each do |message| %>
+        <p class="error"><%= message %></p>
+      <% end %>
+    <% end %>
+    <%= form_for @book do |f| %>
+      <%= f.label :title %><br>
+      <%= f.text_field :title, class: "book_title" %><br>
+      <%= f.label :opinion %><br>
+      <%= f.text_area :opinion, class: "book_body" %><br>
+      <%= f.submit "Update Book", class: "btn btn-primary", style: "display: block;" %>
+    <% end %>
+    <%= link_to "Show", book_path(@book), class: "book_#{@book.id}" %>
+    |
+    <%= link_to "Back", books_path, class: "back" %>
+  </div>
+  <div class="col-lg-3"></div>
+</div>

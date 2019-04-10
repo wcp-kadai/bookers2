@@ -29,22 +29,22 @@
             <!-- ログイン時 -->
             <% if user_signed_in? %>
               <li>
-                <%= link_to user_path(current_user) do %><!-- あとでマイページリンクに変更 -->
+                <%= link_to user_path(current_user), class: "user_#{current_user.id}" do %>
                   <%= fa_icon "home", text: "Home" %> 
                 <% end %>
               </li>
               <li>
-                <%= link_to users_path do %>
+                <%= link_to users_path, class: "users" do %>
                   <%= fa_icon "user", text: "Users" %> 
                 <% end %>
               </li>
               <li>
-                <%= link_to books_path do %>
+                <%= link_to books_path, class: "books" do %>
                   <%= fa_icon "book", text: "Books" %> 
                 <% end %>
               </li>
               <li>
-                <%= link_to destroy_user_session_path, method: :delete do %>
+                <%= link_to destroy_user_session_path, method: :delete, class: "logout" do %>
                   <%= fa_icon "sign-out", text: "logout" %> 
                 <% end %>
               </li>
@@ -52,22 +52,22 @@
               <!-- 非ログイン時 -->
             <% else %>
               <li>
-                <%= link_to root_path do %>
+                <%= link_to root_path, class: "home" do %>
                   <%= fa_icon "home", text: "Home" %> 
                 <% end %>
               </li>
               <li>
-                <%= link_to home_about_path do %>
+                <%= link_to home_about_path, class: "about" do %>
                   <%= fa_icon "link", text: "About" %> 
                 <% end %>
               </li>
               <li>
-                <%= link_to new_user_registration_path do %>
+                <%= link_to new_user_registration_path, class: "sign_up" do %>
                   <%= fa_icon "edit", text: "sign up" %> 
                 <% end %>
               </li>
               <li>
-                <%= link_to new_user_session_path do %>
+                <%= link_to new_user_session_path, class: "sign_in" do %>
                   <%= fa_icon "sign-in", text: "login" %> 
                 <% end %>
               </li>
