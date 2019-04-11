@@ -29,7 +29,7 @@
             <!-- ログイン時 -->
             <% if user_signed_in? %>
               <li>
-                <%= link_to user_path(current_user), class: "user_#{current_user.id}" do %>
+                <%= link_to user_path(current_user), class: "home" do %>
                   <%= fa_icon "home", text: "Home" %> 
                 <% end %>
               </li>
@@ -79,6 +79,7 @@
     <div class="container">
       <% if flash %>
         <p class="success"><%= flash[:success] %></p>
+        <p class="success"><%= notice %></p>
       <% end %>
       <%= yield %>
     </div>
