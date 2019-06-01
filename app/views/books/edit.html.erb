@@ -10,8 +10,8 @@
     <%= form_for @book do |f| %>
       <%= f.label :title %><br>
       <%= f.text_field :title, class: "book_title" %><br>
-      <%= f.label :opinion %><br>
-      <%= f.text_area :opinion, class: "book_body" %><br>
+      <%= f.label :body %><br>
+      <%= f.text_area :body, class: "book_body" %><br>
       <%= f.submit "Update Book", class: "btn btn-primary", style: "display: block;" %>
     <% end %>
     <%= link_to "Show", book_path(@book), class: "book_#{@book.id}" %>
