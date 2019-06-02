@@ -3,6 +3,7 @@
   <div class="col-lg-6">
     <h2>Editing Book</h2>
     <% if @book.errors.any? %>
+      <p><%= @book.errors.count%>errors!</p>
       <% @book.errors.full_messages.each do |message| %>
         <p class="error"><%= message %></p>
       <% end %>
