@@ -1,0 +1,5 @@
+<h2>コメント編集画面</h2>
+<%= form_for [@book, @book_comment] do |f| %>
+  <%= f.text_area :comment %>
+  <%= f.submit '保存' %>
+<% end %>
