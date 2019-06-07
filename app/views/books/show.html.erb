@@ -31,6 +31,9 @@
               <%= fa_icon "heart-o", text: "#{@book.favorites.count} いいね", style: "color: red;" %> 
             <% end %>
           <% end %>
+          <% @book.favorites.each do |favorite| %>
+            / <%= link_to favorite.user.name, user_path(favorite.user) %>
+            <% end %>
           <h3>Book comment</h3>
     <table class="show-tb">
       <% @book_comments.each do |book_comment| %> <!-- コメント一覧 -->
