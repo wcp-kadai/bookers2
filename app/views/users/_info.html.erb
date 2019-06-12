@@ -9,7 +9,22 @@
     <th>introduction</th>
     <th><%= user.introduction %></th>
   </tr>
+  <tr>
+    <th>follows</th>
+    <th><%= user.followings.count %></th>
+  </tr>
+  <tr>
+    <th>followers</th>
+    <th><%= user.followers.count %></th>
+  </tr>
 </table>
-<%= link_to edit_user_path(user), class: "btn btn-default edit_user_#{user.id}" do %>
+<% if current_user != user %>
+  <% if user.followed_by?(current_user) %>
+   <%= link_to 'Followed', user_relationships_path(user), method: :delete, class: "btn btn-default" %> 
+  <% else %>
+    <%= link_to 'Follow', user_relationships_path(user), method: :post, class: "btn btn-info" %> 
+  <% end %>
+<% end %>
+<%= link_to edit_user_path(user), class: "btn btn-default edit_user_#{user.id} edit-btn" do %>
   <%= fa_icon "wrench" %>
 <% end %>
