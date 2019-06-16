@@ -17,6 +17,21 @@
 @import "bootstrap-sprockets";  /*ここを追加*/
 @import "bootstrap";            /*ここを追加*/
 
+
+.search-form {
+  height: 60px;
+  background-color: #222;
+}
+
+.search-form > form {
+  width: 35%;
+  float: right;
+  padding: 10px;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
 /* home */
 .top-wrapper {
   width: 45%;
