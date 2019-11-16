@@ -30,22 +30,22 @@
             <% if user_signed_in? %>
               <li>
                 <%= link_to user_path(current_user), class: "home" do %>
-                  <%= fa_icon "home", text: "Home" %> 
+                  <%= fa_icon "home", text: "Home" %>
                 <% end %>
               </li>
               <li>
                 <%= link_to users_path, class: "users" do %>
-                  <%= fa_icon "user", text: "Users" %> 
+                  <%= fa_icon "user", text: "Users" %>
                 <% end %>
               </li>
               <li>
                 <%= link_to books_path, class: "books" do %>
-                  <%= fa_icon "book", text: "Books" %> 
+                  <%= fa_icon "book", text: "Books" %>
                 <% end %>
               </li>
               <li>
                 <%= link_to destroy_user_session_path, method: :delete, class: "logout" do %>
-                  <%= fa_icon "sign-out", text: "logout" %> 
+                  <%= fa_icon "sign-out", text: "logout" %>
                 <% end %>
               </li>
 
@@ -53,22 +53,22 @@
             <% else %>
               <li>
                 <%= link_to root_path, class: "home" do %>
-                  <%= fa_icon "home", text: "Home" %> 
+                  <%= fa_icon "home", text: "Home" %>
                 <% end %>
               </li>
               <li>
                 <%= link_to home_about_path, class: "about" do %>
-                  <%= fa_icon "link", text: "About" %> 
+                  <%= fa_icon "link", text: "About" %>
                 <% end %>
               </li>
               <li>
                 <%= link_to new_user_registration_path, class: "sign_up" do %>
-                  <%= fa_icon "edit", text: "sign up" %> 
+                  <%= fa_icon "edit", text: "sign up" %>
                 <% end %>
               </li>
               <li>
                 <%= link_to new_user_session_path, class: "sign_in" do %>
-                  <%= fa_icon "sign-in", text: "login" %> 
+                  <%= fa_icon "sign-in", text: "login" %>
                 <% end %>
               </li>
             <% end %>
@@ -81,7 +81,7 @@
         <%= form_tag(search_path, method: :get) do %>
           <%= text_field_tag 'search[content]' %>
           <%= select_tag 'search[model]', options_for_select({ "User" => "user", "Book" => "book" }) %>
-          <%= select_tag 'search[how]', options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>
+          <%# <%= select_tag 'search[how]', options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>
           <%= submit_tag '検索' %>
         <% end %>
       </div>
