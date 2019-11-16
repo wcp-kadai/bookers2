@@ -1,0 +1,30 @@
+<table class="show-tb">
+  <tr>
+    <td>
+      <%= link_to user_path(book.user), class: "user_#{book.user.id}" do %>
+        <%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %><br>
+        <%= book.user.name %>
+      <% end %>
+    </td>
+    <td><%= book.title %></td>
+    <td><%= book.body %></td>
+    <% if book.user.id == current_user.id %>
+      <td><%= link_to "Edit", edit_book_path(book), class: "btn btn-success edit_book_#{book.id}" %></td>
+      <td><%= link_to "Destroy", book_path(book), method: :delete, class: "btn btn-danger destroy_book_#{book.id}", "data-confirm" => "本当に消しますか？" %></td>
+    <% end %>
+  </tr>
+</table>
+<!-- いいねボタン -->
+<% if book.favorited_by?(current_user) %>
+  <%= link_to book_favorites_path(book), method: :delete, remote: true do %>
+    <%= fa_icon "heart", text: "#{book.favorites.count} いいね", style: "color: red;" %>
+  <% end %>
+<% else %>
+  <%= link_to book_favorites_path(book), method: :post, remote: true do %>
+    <%= fa_icon "heart-o", text: "#{book.favorites.count} いいね", style: "color: red;" %>
+  <% end %>
+<% end %>
+<% book.favorites.each do |favorite| %>
+  / <%= link_to favorite.user.name, user_path(favorite.user) %>
+<% end %>
+
