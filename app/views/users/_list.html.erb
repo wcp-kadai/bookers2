@@ -3,12 +3,27 @@
     <th>image</th>
     <th>name</th>
     <th></th>
+    <th>follows</th>
+    <th>followers</th>
+    <th></th>
   </tr>
   <% users.each do |user| %>
     <tr>
       <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %></td>
       <td><%= user.name %></td>
       <td><%= link_to "Show", user, class: "user_#{user.id}" %></td>
+      <td><%= link_to user.followings.count, follows_user_path(user) %></td>
+      <td><%= link_to user.followers.count, followers_user_path(user) %></td>
+      <td>
+        <!-- フォローボタン -->
+        <% if current_user != user %>
+          <% if user.followed_by?(current_user) %>
+            <%= link_to 'Followed', user_relationships_path(user), method: :delete, class: "btn btn-default" %>
+          <% else %>
+            <%= link_to 'Follow', user_relationships_path(user), method: :post, class: "btn btn-info" %>
+          <% end %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>
