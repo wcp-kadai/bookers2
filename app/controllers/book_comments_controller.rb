@@ -16,29 +16,6 @@ class BookCommentsController < ApplicationController
     end
   end
 
-  def edit
-    @book_comment = BookComment.find(params[:id])
-    @book = Book.find(params[:book_id])
-  end
-
-  def update
-    @book_comment = BookComment.find(params[:id])
-    @book = Book.find(params[:book_id])
-    if @book_comment.update(book_comment_params)
-      flash[:success] = "Commnet was successfully updated." 
-      redirect_to book_path(@book)
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    book_comment = BookComment.find(params[:id])
-    book = book_comment.book
-    book_comment.destroy
-    redirect_to book_path(book)
-  end
-
   private
 
   def book_comment_params

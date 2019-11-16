@@ -22,13 +22,13 @@
       </tr>
     </table>
         <!-- いいねボタン -->
-          <% if @book.favorited_by?(current_user) %> 
+          <% if @book.favorited_by?(current_user) %>
             <%= link_to book_favorites_path(@book), method: :delete do %>
-              <%= fa_icon "heart", text: "#{@book.favorites.count} いいね", style: "color: red;" %> 
+              <%= fa_icon "heart", text: "#{@book.favorites.count} いいね", style: "color: red;" %>
             <% end %>
           <% else %>
             <%= link_to book_favorites_path(@book), method: :post do %>
-              <%= fa_icon "heart-o", text: "#{@book.favorites.count} いいね", style: "color: red;" %> 
+              <%= fa_icon "heart-o", text: "#{@book.favorites.count} いいね", style: "color: red;" %>
             <% end %>
           <% end %>
           <h3>Book comment</h3>
@@ -39,17 +39,10 @@
             <%= link_to user_path(book_comment.user), class: "user_#{book_comment.user.id}" do %>
               <%= attachment_image_tag book_comment.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %><br>
               <%= book_comment.user.name %>
-            <% end %> 
+            <% end %>
           </td>
           <td><%= book_comment.comment %></td>
           <td></td>
-          <% if book_comment.user == current_user %>
-            <td><%= link_to 'Edit', edit_book_book_comment_path(book_comment.book, book_comment), class: "btn btn-success edit_book_#{@book.id}" %></td>
-            <td><%= link_to 'Destroy', book_book_comment_path(book_comment.book, book_comment), method: :delete, "data-confirm" => "本当に削除しますか", class: "btn btn-danger"%></td>
-          <% else %>
-            <td></td>
-            <td></td>
-          <% end %>
         </tr>
       <% end %>
     </table>
