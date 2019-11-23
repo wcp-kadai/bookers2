@@ -28,11 +28,11 @@
         <td>
           <!-- いいねボタン -->
             <% if book.favorited_by?(current_user) %>
-              <%= link_to book_favorites_path(book), method: :delete do %>
+              <%= link_to book_favorites_path(book, redirect_id: 0), method: :delete do %>
                 <%= fa_icon "heart", text: "#{book.favorites.count}", style: "color: red;" %>
               <% end %>
             <% else %>
-              <%= link_to book_favorites_path(book), method: :post do %>
+              <%= link_to book_favorites_path(book, redirect_id: 0), method: :post do %>
                 <%= fa_icon "heart-o", text: "#{book.favorites.count}", style: "color: red;" %>
               <% end %>
             <% end %>
