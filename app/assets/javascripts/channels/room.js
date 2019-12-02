@@ -16,6 +16,8 @@ $(function() {
     received: (data) => {
       $('#message-wrapper').append(data.message);
       floatMessage();
+      $(window).scrollTop($(window).height());
+      console.log($(window).height());
     },
     speak(from_id, to_id, room_id, content) {
       this.perform('speak', { from_id, to_id, room_id, content });
