@@ -14,8 +14,8 @@ $(function() {
 
   App.room = App.cable.subscriptions.create(room_ch(), {
     received: (data) => {
-      // $('#message-wrapper').append(data.message);
-      alert(data.message);
+      $('#message-wrapper').append(data.message);
+      floatMessage();
     },
     speak(from_id, to_id, room_id, content) {
       this.perform('speak', { from_id, to_id, room_id, content });
@@ -26,5 +26,12 @@ $(function() {
     e.preventDefault();
     App.room.speak(current_user_id(), user_id(), room_id(), content());
     $('input[name="content"]').val('');
-  })
+  });
+
+  const floatMessage = () => {
+    $('.message-' + current_user_id()).css({
+      justifyContent: 'flex-end'
+    });
+  };
+  floatMessage();
 });

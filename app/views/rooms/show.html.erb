@@ -1,4 +1,6 @@
 <div id="message-wrapper">
-  <%= render @chat_messages %>
+  <% @chat_messages.each do |chat_message| %>
+    <%= render 'chat_message', chat_message: chat_message %>
+  <% end %>
 </div>
 <%= render 'chat_message_form', room_id: @room_id, from_user: current_user, to_user: @user %>
