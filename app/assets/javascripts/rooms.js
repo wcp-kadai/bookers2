@@ -1,3 +1,5 @@
 $(function() {
-  $(window).scrollTop($(window).height());
+  $(document).on('turbolinks:load', function() {
+    $(window).scrollTop($('#message-wrapper').height());
+  });
 });
