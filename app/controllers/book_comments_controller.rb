@@ -3,6 +3,7 @@ class BookCommentsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def create
+    # 同期処理はコメントアウト
     # @book = Book.find(params[:book_id])
     # @book_new = Book.new
     # @book_comment = @book.book_comments.new(book_comment_params)
@@ -18,6 +19,8 @@ class BookCommentsController < ApplicationController
     @book_comment = book.book_comments.new(book_comment_params)
     @book_comment.user_id = current_user.id
     @book_comment.save
+    # ここの処理まで終わるとapp/views/book_comments/create.js.erb(app/views/コントローラー名/アクション名.js.erb)のjavascriptコードが実行される
+    # html.erbと同様にここで定義したインスタンス変数をjs.erbファイルでも使用することができる(今回@book_commentをcreate.js.erbで使用できる)
   end
 
   def edit

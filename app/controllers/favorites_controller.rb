@@ -5,6 +5,7 @@ class FavoritesController < ApplicationController
     favorite = @book.favorites.new(user_id: current_user.id)
     favorite.save
     render 'books/favorite_change'
+    # renderの指定でapp/views/books/favorite_change.js.erbのjavascriptコードが実行される
   end
 
   def destroy
@@ -13,5 +14,6 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.find_by(book_id: @book.id)
     favorite.destroy
     render 'books/favorite_change'
+    # renderの指定でapp/views/books/favorite_change.js.erbのjavascriptコードが実行される
   end
 end

@@ -13,7 +13,7 @@
       <%= render @book_comments %>
     </table>
     <div class="comment-form">
-      <%= form_with model: [@book, @book_comment] do |f| %>
+      <%= form_with model: [@book, @book_comment] do |f| # form_with or form_for remote: trueで非同期になる %>
         <%= f.text_area :comment, size: "90x5" %>
         <%= f.submit '送信' %>
       <% end %>

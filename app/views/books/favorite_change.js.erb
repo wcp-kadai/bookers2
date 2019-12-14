@@ -1,5 +1,5 @@
-if(<%= @render_flag %> === 0) {
-  $('#book-<%= @book.id %>').html('<%= j(render 'books/book', book: @book) %>');
-} else {
+if(<%= @render_flag %> === 0) { <%# indexページの場合 %>
+  $('#book-<%= @book.id %>').html('<%= j(render 'books/book', book: @book) %>'); <%# jメソッドはescape_javascriptメソッドのエイリアス。javascriptエスケープしてくれる %>
+} else { <%# showページの場合 %>
   $('.book-wrapper').html('<%= j(render 'books/content', book: @book) %>');
 }

@@ -1,2 +1,2 @@
-$('.show-tb').append('<%= j(render 'book_comment', book_comment: @book_comment) %>');
+$('.show-tb').append('<%= j(render 'book_comment', book_comment: @book_comment) %>'); <%# jメソッドはescape_javascriptメソッドのエイリアス。javascriptエスケープしてくれる %>
 $('#book_comment_comment').val('');
