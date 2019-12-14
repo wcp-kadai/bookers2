@@ -108,6 +108,7 @@
 
 .message {
   display: flex;
+  margin-bottom: 10px;
 }
 
 .dm-link {
@@ -115,3 +116,11 @@
   margin-top: 10px;
 }
 
+.grey {
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+.message_form {
+  margin-bottom: 50px;
+}

@@ -25,8 +25,8 @@
   <% else %>
     <%= link_to 'Follow', user_relationships_path(user), method: :post, class: "btn btn-info" %>
   <% end %>
-  <%= link_to "DM", user_rooms_path(user), data: { "turbolinks" => false }, class: "btn btn-primary dm-link"
-  # turbolinksをfalseにしないとこのリンクからチャットページ遷移時にjavascriptが実行されないため付加 %>
+  <%= link_to "DM", user_rooms_path(user), data: { "turbolinks" => false }, class: "btn btn-primary dm-link" %>
+  <%# turbolinksをfalseにしないとこのリンクからチャットページ遷移時にjavascriptが実行されないため付加 %>
 <% end %>
 <%= link_to edit_user_path(user), class: "btn btn-default edit_user_#{user.id} edit-btn" do %>
   <%= fa_icon "wrench" %>
