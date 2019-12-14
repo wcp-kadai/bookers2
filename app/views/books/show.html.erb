@@ -32,6 +32,7 @@
             <% end %>
           <% end %>
           <h3>Book comment</h3>
+    <p>コメント数: <%= @book_comments.count %></p>
     <table class="show-tb">
       <% @book_comments.each do |book_comment| %> <!-- コメント一覧 -->
         <tr>
