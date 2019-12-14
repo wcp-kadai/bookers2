@@ -13,14 +13,14 @@ class User < ApplicationRecord
   has_many :favorites
 
   has_many :active_relationships, class_name: 'Relationship', foreign_key: :following_id
-  has_many :followings, through: :active_relationships, source: :follower
-  has_many :following_books, through: :followings, source: :books
+  has_many :followings, through: :active_relationships, source: :follower # フォローユーザー取得
+  has_many :following_books, through: :followings, source: :books # フォローユーザーが投稿したbook取得
 
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: :follower_id
-  has_many :followers, through: :passive_relationships, source: :following
+  has_many :followers, through: :passive_relationships, source: :following # フォロワーユーザー取得
 
 
-  def followed_by?(user)
+  def followed_by?(user) # レシーバーのユーザーが引数で渡されたユーザーにフォローされているか判定
     passive_relationships.find_by(following_id: user.id).present?
   end
 end

@@ -26,17 +26,17 @@ class UsersController < ApplicationController
     end
   end
 
-  def follows
+  def follows # フォロー一覧
     user = User.find(params[:id])
     @users = user.followings
   end
 
-  def followers
+  def followers # フォロワー一覧
     user = User.find(params[:id])
     @users = user.followers
   end
 
-  def my_follows
+  def my_follows # フォローユーザーが投稿したbook一覧
     @books = current_user.following_books
   end
 
