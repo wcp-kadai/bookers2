@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
     get :follows, on: :member
     get :followers, on: :member
+    get :my_follows, on: :member
   end
 
   resources :books, only: [:index, :show, :edit, :create, :update, :destroy] do
