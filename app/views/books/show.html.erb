@@ -9,7 +9,8 @@
       <%= render 'content', book: @book %>
     </div>
     <h3>Book comment</h3>
-    <table class="show-tb">
+    <p>コメント数: <%= @book_comments.count %></p>
+    <table class="show-tb comment-tb">
       <%= render @book_comments %>
     </table>
     <div class="comment-form">
