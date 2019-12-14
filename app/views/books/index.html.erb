@@ -27,7 +27,7 @@
           <td><%= book.body %></td>
         <td>
           <!-- いいねボタン -->
-            <% if book.favorited_by?(current_user) %>
+            <% if book.favorited_by?(current_user) %> <!-- 「redirect_to: 0」はいいね後にどこにリダイレクトするかのフラグをクエリストリングとして渡している(0: indexページ, 1: showページ) -->
               <%= link_to book_favorites_path(book, redirect_id: 0), method: :delete do %>
                 <%= fa_icon "heart", text: "#{book.favorites.count}", style: "color: red;" %>
               <% end %>
