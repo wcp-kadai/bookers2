@@ -14,5 +14,5 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
 
-  get '/search', to: 'search#index'
+  get '/search', to: 'search#search'
 end
