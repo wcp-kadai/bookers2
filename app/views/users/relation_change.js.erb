@@ -1,0 +1,5 @@
+if(<%= @render_flag %> === 0) { <%# indexページの場合 %>
+  $('.list-user-<%= @user.id %>').html('<%= j(render 'users/user', user: @user) %>');
+} else { <%# showページの場合 %>
+  $('.user-info').html('<%= j(render 'users/info', user: @user) %>');
+}
